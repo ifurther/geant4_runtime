@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "main" ]
 env:
-  GHCR_REPO: ghcr.io/${{ GH_ACTION_REPOSITORY }}
+  GHCR_REPO: ghcr.io/${{ GitHub.GH_ACTION_REPOSITORY }}
 jobs:
 
   build:
