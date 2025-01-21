@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "main" ]
 env:
-  GHCR_REPO: ghcr.io/${{ GitHub.GH_ACTION_REPOSITORY }}
+  GHCR_REPO: ghcr.io/${{ github.action_repository }}
 jobs:
 
   build:
@@ -47,6 +47,6 @@ jobs:
     - name: Build the Docker image and push
       uses: docker/build-push-action@v6
       with:
-        platforms: linux/amd64,linux/arm64
+        platforms: ${{ matrix.platform }}
         push: true
         tags: ${{ github.repository_owner }}/geant4_runtime:latest
